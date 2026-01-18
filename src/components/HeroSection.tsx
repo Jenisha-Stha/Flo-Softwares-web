@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
 const TOTAL_FRAMES = 80;
@@ -41,55 +41,95 @@ export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentFrame, setCurrentFrame] = useState(1);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(TOTAL_FRAMES).fill(false));
+  const frameRef = useRef(1);
+  const rafRef = useRef<number | null>(null);
 
   // Preload all images
   useEffect(() => {
-    const preloadImages = async () => {
-      const promises = [];
-      for (let i = 1; i <= TOTAL_FRAMES; i++) {
+    const loadImage = (index: number): Promise<void> => {
+      return new Promise((resolve) => {
         const img = new window.Image();
-        img.src = `/frames/ezgif-frame-${String(i).padStart(3, "0")}.jpg`;
-        promises.push(
-          new Promise((resolve) => {
-            img.onload = resolve;
-            img.onerror = resolve;
-          })
-        );
-      }
-      await Promise.all(promises);
-      setIsLoaded(true);
+        img.src = `/frames/ezgif-frame-${String(index).padStart(3, "0")}.jpg`;
+        img.onload = () => {
+          setImagesLoaded(prev => {
+            const newState = [...prev];
+            newState[index - 1] = true;
+            return newState;
+          });
+          resolve();
+        };
+        img.onerror = () => resolve();
+      });
     };
+
+    const preloadImages = async () => {
+      // Load first few frames immediately for quick start
+      await Promise.all([1, 2, 3, 4, 5].map(i => loadImage(i)));
+      setIsLoaded(true);
+
+      // Load rest in background
+      for (let i = 6; i <= TOTAL_FRAMES; i++) {
+        loadImage(i);
+      }
+    };
+
     preloadImages();
   }, []);
 
-  // Handle scroll-based frame animation
+  // Smooth scroll-based frame animation using requestAnimationFrame
+  const updateFrame = useCallback(() => {
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const containerTop = rect.top;
+    const containerHeight = rect.height;
+    const windowHeight = window.innerHeight;
+
+    const scrollStart = -windowHeight;
+    const scrollEnd = containerHeight - windowHeight;
+    const scrollRange = scrollEnd - scrollStart;
+
+    const progress = Math.max(
+      0,
+      Math.min(1, (-containerTop - scrollStart) / scrollRange)
+    );
+
+    const targetFrame = Math.max(1, Math.min(TOTAL_FRAMES, Math.ceil(progress * TOTAL_FRAMES)));
+
+    // Smoother interpolation towards target frame
+    const currentFrameVal = frameRef.current;
+    const diff = targetFrame - currentFrameVal;
+    const step = diff * 0.08; // Lower = smoother
+
+    if (Math.abs(diff) > 0.3) {
+      frameRef.current = currentFrameVal + step;
+      setCurrentFrame(Math.round(frameRef.current));
+      rafRef.current = requestAnimationFrame(updateFrame);
+    } else {
+      frameRef.current = targetFrame;
+      setCurrentFrame(targetFrame);
+    }
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const containerTop = rect.top;
-      const containerHeight = rect.height;
-      const windowHeight = window.innerHeight;
-
-      const scrollStart = -windowHeight;
-      const scrollEnd = containerHeight - windowHeight;
-      const scrollRange = scrollEnd - scrollStart;
-
-      const progress = Math.max(
-        0,
-        Math.min(1, (-containerTop - scrollStart) / scrollRange)
-      );
-
-      const frame = Math.max(1, Math.min(TOTAL_FRAMES, Math.ceil(progress * TOTAL_FRAMES)));
-      setCurrentFrame(frame);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      rafRef.current = requestAnimationFrame(updateFrame);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [updateFrame]);
 
   const getFramePath = (frameNum: number) => {
     return `/frames/ezgif-frame-${String(frameNum).padStart(3, "0")}.jpg`;
@@ -99,17 +139,15 @@ export default function HeroSection() {
   const getCurrentText = () => {
     for (const text of scrollTexts) {
       if (currentFrame >= text.startFrame && currentFrame <= text.endFrame) {
-        // Calculate opacity based on position within this text's range
         const rangeSize = text.endFrame - text.startFrame;
         const positionInRange = currentFrame - text.startFrame;
         const progress = positionInRange / rangeSize;
 
-        // Fade in for first 20%, full opacity for middle 60%, fade out for last 20%
         let opacity = 1;
-        if (progress < 0.2) {
-          opacity = progress / 0.2;
-        } else if (progress > 0.8) {
-          opacity = (1 - progress) / 0.2;
+        if (progress < 0.15) {
+          opacity = progress / 0.15;
+        } else if (progress > 0.85) {
+          opacity = (1 - progress) / 0.15;
         }
 
         return { ...text, opacity };
@@ -129,8 +167,13 @@ export default function HeroSection() {
     >
       {/* Sticky Full-Page Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Full-Page Frame Image */}
-        <div className="absolute inset-0 w-full h-full">
+        {/* Full-Page Frame Image with smooth transition */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            transition: "opacity 0.1s ease-out",
+          }}
+        >
           {!isLoaded ? (
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#f8faff] to-[#e8ecff]">
               <div className="w-16 h-16 border-4 border-[#020063]/20 border-t-[#020063] rounded-full animate-spin"></div>
@@ -141,6 +184,9 @@ export default function HeroSection() {
               alt="Phone Assembly Animation"
               fill
               className="object-cover"
+              style={{
+                transition: "opacity 0.15s ease-out",
+              }}
               priority
               unoptimized
             />
@@ -150,8 +196,12 @@ export default function HeroSection() {
         {/* Text Overlay - Right Side */}
         {isLoaded && (
           <div
-            className="absolute right-8 sm:right-16 lg:right-24 top-1/2 -translate-y-1/2 max-w-md text-right transition-all duration-300"
-            style={{ opacity: currentText.opacity }}
+            className="absolute right-8 sm:right-16 lg:right-24 top-1/2 -translate-y-1/2 max-w-md text-right"
+            style={{
+              opacity: currentText.opacity,
+              transition: "opacity 0.3s ease-out",
+              transform: `translateY(-50%) translateX(${(1 - currentText.opacity) * 20}px)`,
+            }}
           >
             <h2
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#020063] leading-tight mb-2"
@@ -184,8 +234,11 @@ export default function HeroSection() {
             {/* CTA Button - Only on first phase */}
             {currentFrame <= 25 && (
               <div
-                className="mt-8 transition-opacity duration-500"
-                style={{ opacity: currentFrame <= 15 ? 1 : (25 - currentFrame) / 10 }}
+                className="mt-8"
+                style={{
+                  opacity: currentFrame <= 15 ? 1 : (25 - currentFrame) / 10,
+                  transition: "opacity 0.3s ease-out",
+                }}
               >
                 <a
                   href="#contact"
@@ -199,21 +252,6 @@ export default function HeroSection() {
                 </a>
               </div>
             )}
-          </div>
-        )}
-
-        {/* Left side small text indicator */}
-        {isLoaded && (
-          <div
-            className="absolute left-8 sm:left-16 bottom-12 transition-opacity duration-300"
-            style={{ opacity: 0.6 }}
-          >
-            <div className="text-sm text-[#020063]/60 font-medium">
-              <span className="block text-xs uppercase tracking-widest mb-1">Scroll Progress</span>
-              <span className="text-2xl font-bold text-[#020063]">
-                {Math.round((currentFrame / TOTAL_FRAMES) * 100)}%
-              </span>
-            </div>
           </div>
         )}
       </div>
