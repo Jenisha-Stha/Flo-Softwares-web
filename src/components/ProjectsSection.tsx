@@ -6,50 +6,52 @@ const projects = [
   {
     title: "E-Commerce Platform",
     category: "Web Development",
-    description: "A full-featured online shopping platform with real-time inventory management.",
+    description: "Full-featured online shopping platform with real-time inventory.",
     tags: ["React", "Node.js", "MongoDB"],
     color: "#4338ca",
   },
   {
-    title: "Healthcare Management",
-    category: "Enterprise Software",
-    description: "Comprehensive hospital management system for patient records and scheduling.",
-    tags: ["Python", "PostgreSQL", "Docker"],
+    title: "Healthcare System",
+    category: "Enterprise",
+    description: "Hospital management system for patient records and scheduling.",
+    tags: ["Python", "PostgreSQL"],
     color: "#020063",
   },
   {
     title: "FinTech Dashboard",
-    category: "Web Application",
-    description: "Real-time financial analytics dashboard with advanced data visualization.",
-    tags: ["Next.js", "D3.js", "AWS"],
+    category: "Web App",
+    description: "Financial analytics dashboard with data visualization.",
+    tags: ["Next.js", "D3.js"],
     color: "#6366f1",
   },
   {
     title: "Learning Platform",
     category: "EdTech",
-    description: "Interactive e-learning platform with video courses and progress tracking.",
-    tags: ["React", "Node.js", "WebRTC"],
+    description: "E-learning platform with video courses and tracking.",
+    tags: ["React", "WebRTC"],
     color: "#4338ca",
   },
   {
     title: "Inventory System",
-    category: "Client Software",
-    description: "Desktop inventory and warehouse management with barcode integration.",
-    tags: ["Electron", "SQLite", "React"],
+    category: "Desktop",
+    description: "Warehouse management with barcode integration.",
+    tags: ["Electron", "SQLite"],
     color: "#020063",
   },
   {
     title: "Social Media App",
-    category: "Mobile Development",
-    description: "Feature-rich social networking app with real-time messaging.",
-    tags: ["React Native", "Firebase", "WebSocket"],
+    category: "Mobile",
+    description: "Social networking app with real-time messaging.",
+    tags: ["React Native", "Firebase"],
     color: "#6366f1",
   },
 ];
 
+const allProjects = [...projects, ...projects];
+
 export default function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -75,7 +77,6 @@ export default function ProjectsSection() {
       ref={sectionRef}
       style={{
         backgroundColor: "#f8faff",
-        position: "relative",
         overflow: "hidden",
       }}
     >
@@ -96,7 +97,6 @@ export default function ProjectsSection() {
             fontSize: "14px",
             fontWeight: "600",
             marginBottom: "24px",
-            letterSpacing: "0.5px",
           }}
         >
           🚀 Our Projects
@@ -117,100 +117,82 @@ export default function ProjectsSection() {
           style={{
             fontSize: "18px",
             color: "rgba(2, 0, 99, 0.5)",
-            maxWidth: "550px",
+            maxWidth: "500px",
             margin: "0 auto",
-            lineHeight: "1.6",
           }}
         >
-          Explore our portfolio of successful projects across various industries
+          Explore our portfolio of successful projects
         </p>
       </div>
 
-      {/* Projects Grid */}
+      {/* Carousel */}
       <div
-        style={{
-          padding: "0 24px 120px 24px",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
+        style={{ paddingBottom: "120px" }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-            gap: "24px",
+            display: "flex",
+            gap: "48px",
+            paddingLeft: "48px",
+            animation: "scrollProjects 40s linear infinite",
+            animationPlayState: isPaused ? "paused" : "running",
+            width: "fit-content",
           }}
         >
-          {projects.map((project, index) => (
+          {allProjects.map((project, index) => (
             <div
               key={index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               style={{
-                borderRadius: "24px",
+                minWidth: "320px",
+                borderRadius: "20px",
                 backgroundColor: "white",
-                border: "1px solid rgba(2, 0, 99, 0.05)",
                 overflow: "hidden",
-                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                cursor: "pointer",
-                transform: hoveredIndex === index ? "translateY(-8px)" : "translateY(0)",
-                boxShadow: hoveredIndex === index
-                  ? "0 20px 40px rgba(2, 0, 99, 0.1)"
-                  : "0 2px 8px rgba(0, 0, 0, 0.04)",
+                boxShadow: "0 4px 24px rgba(0, 0, 0, 0.06)",
+                transition: "all 0.3s ease",
               }}
+              className="hover:-translate-y-2 hover:shadow-xl"
             >
-              {/* Project Image Placeholder */}
+              {/* Header */}
               <div
                 style={{
-                  height: "200px",
-                  background: `linear-gradient(135deg, ${project.color} 0%, ${project.color}dd 100%)`,
+                  height: "160px",
+                  background: `linear-gradient(135deg, ${project.color} 0%, ${project.color}bb 100%)`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   position: "relative",
-                  overflow: "hidden",
                 }}
               >
-                {/* Pattern overlay */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    opacity: 0.1,
-                    background: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-                  }}
-                />
-                {/* Category badge */}
                 <span
                   style={{
                     position: "absolute",
-                    top: "16px",
-                    left: "16px",
-                    padding: "6px 14px",
+                    top: "14px",
+                    left: "14px",
+                    padding: "5px 12px",
                     backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    backdropFilter: "blur(10px)",
+                    backdropFilter: "blur(8px)",
                     color: "white",
                     borderRadius: "100px",
-                    fontSize: "12px",
+                    fontSize: "11px",
                     fontWeight: "600",
                   }}
                 >
                   {project.category}
                 </span>
-                {/* Icon */}
                 <div
                   style={{
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "20px",
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "14px",
                     backgroundColor: "rgba(255, 255, 255, 0.15)",
-                    backdropFilter: "blur(10px)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "36px",
-                    transition: "transform 0.3s ease",
-                    transform: hoveredIndex === index ? "scale(1.1)" : "scale(1)",
+                    fontSize: "24px",
+                    color: "white",
+                    fontWeight: "bold",
                   }}
                 >
                   {"</>"}
@@ -218,39 +200,37 @@ export default function ProjectsSection() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: "28px" }}>
+              <div style={{ padding: "20px" }}>
                 <h3
                   style={{
-                    fontSize: "20px",
+                    fontSize: "18px",
                     fontWeight: "bold",
                     color: "#020063",
-                    marginBottom: "10px",
+                    marginBottom: "8px",
                   }}
                 >
                   {project.title}
                 </h3>
                 <p
                   style={{
-                    fontSize: "14px",
+                    fontSize: "13px",
                     color: "rgba(2, 0, 99, 0.5)",
-                    lineHeight: "1.6",
-                    marginBottom: "20px",
+                    lineHeight: "1.5",
+                    marginBottom: "14px",
                   }}
                 >
                   {project.description}
                 </p>
-
-                {/* Tags */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
                       style={{
-                        padding: "6px 12px",
+                        padding: "4px 10px",
                         backgroundColor: "#f8faff",
                         color: "#4338ca",
-                        borderRadius: "8px",
-                        fontSize: "12px",
+                        borderRadius: "6px",
+                        fontSize: "11px",
                         fontWeight: "500",
                       }}
                     >
@@ -263,6 +243,17 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scrollProjects {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 }
