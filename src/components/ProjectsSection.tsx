@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -11,9 +11,9 @@ const projects = [
     color: "#4338ca",
   },
   {
-    title: "title",
+    title: "title"
     category: "Enterprise",
-    description: "Social networking app with real-time messaging.",
+    description: "Social networking app with real-time messaging..",
     tags: ["Python", "PostgreSQL"],
     color: "#020063",
   },
@@ -26,7 +26,7 @@ const projects = [
   },
   {
     title: "title",
-    category: "web app",
+    category: "Web App",
     description: "Social networking app with real-time messaging.",
     tags: ["React", "WebRTC"],
     color: "#4338ca",

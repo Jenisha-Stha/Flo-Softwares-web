@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 const team = [
   {
-    name: "Jenisha Shrestha",
+    name: "Manish Basnet",
     role: "Founder & CEO",
     bio: "Visionary leader with 10+ years in software",
-    initial: "JS",
+    initial: "MB",
     color: "#020063",
   },
   {
-    name: "Aarav Sharma",
+    name: "Sanjeev Shrestha",
     role: "Lead Developer",
     bio: "Full-stack expert in React and Node.js",
-    initial: "AS",
+    initial: "SS",
     color: "#4338ca",
   },
   {

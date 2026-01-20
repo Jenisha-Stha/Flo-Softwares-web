@@ -1,28 +1,29 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Monitor, Globe, Palette, Smartphone } from "lucide-react";
 
 const services = [
   {
-    icon: "💻",
+    icon: <Monitor size={32} color="white" />,
     title: "Client Software",
     description: "Custom desktop and enterprise applications tailored to your specific business needs with robust architecture.",
     features: ["Enterprise Solutions", "Data Management", "Automation Tools"],
   },
   {
-    icon: "🌐",
+    icon: <Globe size={32} color="white" />,
     title: "Web Development",
     description: "Full-stack web applications built with modern technologies for optimal performance and scalability.",
     features: ["Responsive Design", "Cross-Platform", "API Integration"],
   },
   {
-    icon: "🎨",
+    icon: <Palette size={32} color="white" />,
     title: "UI/UX Design",
     description: "User-centered design solutions that combine beautiful aesthetics with seamless functionality.",
     features: ["User Research", "Wireframing", "Prototyping"],
   },
   {
-    icon: "📱",
+    icon: <Smartphone size={32} color="white" />,
     title: "Mobile Apps",
     description: "Native and cross-platform mobile applications for iOS and Android with stunning interfaces.",
     features: ["iOS & Android", "React Native", "Flutter"],
