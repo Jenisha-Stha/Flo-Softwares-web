@@ -7,7 +7,7 @@ const testimonials = [
     name: "Jenisha Shrestha",
     role: "Client",
     review:
-      "EchoNepal helped us communicate better with customers. Amazing experience!",
+      " helped us communicate better with customers. Amazing experience!",
   },
   {
     name: "Prashant Karki",
