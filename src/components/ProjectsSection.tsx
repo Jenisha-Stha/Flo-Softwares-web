@@ -41,7 +41,7 @@ const projects = [
   {
     title: "title",
     category: "Mobile",
-    description: "Social networking app with real-time messaging.",
+    description: "social networking.",
     tags: ["React Native", "Firebase"],
     color: "#6366f1",
   },
