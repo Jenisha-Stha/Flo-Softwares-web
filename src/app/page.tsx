@@ -8,6 +8,7 @@ import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import ServicesSection from "@/components/ServicesSection";
+import PartnershipSection from "@/components/PartnershipSection";
 import TestimonialSection from "@/components/TestimonialSection";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <PartnershipSection />
       <ProjectsSection />
       <TestimonialSection />
       <TeamSection />
