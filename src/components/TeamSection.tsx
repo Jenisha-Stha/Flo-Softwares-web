@@ -18,14 +18,14 @@ const team = [
     color: "#4338ca",
   },
   {
-    name: "Priya Thapa",
+    name: "Apeksha Parajuli",
     role: "UI/UX Designer",
     bio: "Creative designer for user experiences",
     initial: "PT",
     color: "#6366f1",
   },
   {
-    name: "Raj Maharjan",
+    name: "Arpana Sharma",
     role: "Backend Architect",
     bio: "Systems expert in cloud infrastructure",
     initial: "RM",
