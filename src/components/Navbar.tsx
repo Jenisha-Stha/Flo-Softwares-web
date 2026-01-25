@@ -58,24 +58,6 @@ export default function Navbar() {
             {link.name}
           </Link>
         ))}
-        <Link
-          href="#contact"
-          style={{
-            background: "linear-gradient(135deg, #020063 0%, #3730a3 100%)",
-            color: "white",
-            padding: "12px 28px",
-            borderRadius: "100px",
-            fontSize: "15px",
-            fontWeight: "600",
-            boxShadow: "0 4px 20px rgba(2, 0, 99, 0.4)",
-            marginLeft: "8px",
-            textDecoration: "none",
-            transition: "all 0.2s ease",
-          }}
-          className="hover:scale-105 hover:shadow-xl"
-        >
-          Get Started
-        </Link>
       </div>
     </nav>
   );
