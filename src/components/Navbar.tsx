@@ -53,7 +53,7 @@ export default function Navbar() {
               transition: "all 0.2s ease",
               textDecoration: "none",
             }}
-            className="hover:bg-white/40"
+            className="hover:bg-[#020063]/20 "
           >
             {link.name}
           </Link>
