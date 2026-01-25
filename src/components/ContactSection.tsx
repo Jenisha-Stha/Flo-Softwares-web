@@ -109,8 +109,12 @@ export default function ContactSection() {
                 marginBottom: "32px",
               }}
             >
+ apekshyaa
+              Have a project in mind? We&apos;d love to hear from you. Send us a message
+              and we&apos;ll respond as soon as possible.
               Have a project in mind? We&apos;d love to hear from you. Send us a
               message and we&apos;ll respond as soon as possible.
+main
             </p>
 
             {/* Contact Items */}

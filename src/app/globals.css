@@ -149,3 +149,12 @@ body {
   background: linear-gradient(180deg, #020063, #110f94);
   border-radius: 4px;
 }
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shine {
+  background-size: 200% 100%;
+  animation: shine 6s linear infinite; /* slower than before */
+}
