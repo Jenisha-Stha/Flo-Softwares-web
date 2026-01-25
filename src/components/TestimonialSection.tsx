@@ -7,7 +7,11 @@ const testimonials = [
     name: "Jenisha Shrestha",
     role: "Client",
     review:
+apekshyaa
       " helped us communicate better with customers. Amazing experience!",
+
+      "Helped us communicate better with customers. Amazing experience!",
+ main
   },
   {
     name: "Prashant Karki",
@@ -39,14 +43,14 @@ export default function Testimonials() {
   }, [active]);
 
   return (
-    <section className="w-full flex justify-center mt-32 px-4">
+    <section className="w-full flex justify-center mt-24 px-4">
       <div className="w-full max-w-6xl">
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">
           What Our Clients Say
         </h2>
 
-        {/* Slider Container */}
-        <div className="relative w-full h-[420px] overflow-hidden flex items-center justify-center">
+        
+        <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden flex items-center justify-center">
           {testimonials.map((item, i) => {
             let position = "hidden";
 
@@ -65,17 +69,25 @@ export default function Testimonials() {
                   ${cardStyles[position]}
                 `}
               >
-                {/* Card */}
-                <div className="bg-white rounded-3xl shadow-2xl w-[520px] h-[260px] p-10 flex flex-col items-center justify-center gap-6 text-center">
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                
+                <div className="
+                  bg-white rounded-3xl shadow-2xl
+                  w-full max-w-[340px] md:max-w-[520px]
+                  h-[220px] md:h-[260px]
+                  p-6 md:p-10
+                  flex flex-col items-center justify-center
+                  gap-4 md:gap-6
+                  text-center
+                ">
+                  <p className="text-gray-600 text-base md:text-lg leading-relaxed line-clamp-3">
                     “{item.review}”
                   </p>
 
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
+                    <h4 className="text-lg md:text-xl font-semibold text-gray-800">
                       {item.name}
                     </h4>
-                    <span className="text-sm text-gray-400">
+                    <span className="text-xs md:text-sm text-gray-400">
                       {item.role}
                     </span>
                   </div>
@@ -89,16 +101,16 @@ export default function Testimonials() {
   );
 }
 
-/* Card Animation States */
+
 const cardStyles: Record<string, string> = {
   active:
     "z-30 translate-x-0 rotate-0 scale-100 opacity-100",
 
   leaving:
-    "z-20 -translate-x-40 -rotate-3 scale-95 opacity-100",
+    "z-20 -translate-x-20 md:-translate-x-40 -rotate-3 scale-95 opacity-100",
 
   next:
-    "z-10 translate-x-40 rotate-3 scale-95 opacity-100",
+    "z-10 translate-x-20 md:translate-x-40 rotate-3 scale-95 opacity-100",
 
   hidden:
     "opacity-0 scale-90 pointer-events-none",

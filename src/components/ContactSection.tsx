@@ -32,16 +32,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      style={{ backgroundColor: "#f8faff" }}
-    >
+    <section id="contact" style={{ backgroundColor: "#f8faff" }}>
       {/* Header */}
       <div
-        style={{
-          padding: "100px 24px 48px 24px",
-          textAlign: "center",
-        }}
+        className="w-full px-6 py-12 md:pt-[100px] md:pb-12 text-center"
+        style={{}}
       >
         <span
           style={{
@@ -83,18 +78,15 @@ export default function ContactSection() {
 
       {/* Content */}
       <div
+        className="w-full px-6 pb-12 md:pb-[100px] max-w-[1000px] mx-auto"
         style={{
-          padding: "0 24px 100px 24px",
-          maxWidth: "1000px",
-          margin: "0 auto",
+          margin: "0 auto", // Force centering with inline style as backup
         }}
       >
         <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[48px] items-start"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "48px",
-            alignItems: "start",
           }}
         >
           {/* Contact Info */}
@@ -117,8 +109,12 @@ export default function ContactSection() {
                 marginBottom: "32px",
               }}
             >
+ apekshyaa
               Have a project in mind? We&apos;d love to hear from you. Send us a message
               and we&apos;ll respond as soon as possible.
+              Have a project in mind? We&apos;d love to hear from you. Send us a
+              message and we&apos;ll respond as soon as possible.
+main
             </p>
 
             {/* Contact Items */}
@@ -174,7 +170,10 @@ export default function ContactSection() {
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.06)",
             }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
+              style={{ display: "grid" }}
+            >
               <input
                 type="text"
                 placeholder="Your Name"
