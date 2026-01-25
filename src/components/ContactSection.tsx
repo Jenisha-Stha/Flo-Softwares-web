@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -76,7 +77,7 @@ export default function ContactSection() {
             margin: "0 auto",
           }}
         >
-          Let's discuss how we can help your business grow
+          Let&apos;s discuss how we can help your business grow
         </p>
       </div>
 
@@ -106,7 +107,7 @@ export default function ContactSection() {
                 marginBottom: "24px",
               }}
             >
-              Let's Talk
+              Let&apos;s Talk
             </h3>
             <p
               style={{
@@ -116,16 +117,16 @@ export default function ContactSection() {
                 marginBottom: "32px",
               }}
             >
-              Have a project in mind? We'd love to hear from you. Send us a message
-              and we'll respond as soon as possible.
+              Have a project in mind? We&apos;d love to hear from you. Send us a message
+              and we&apos;ll respond as soon as possible.
             </p>
 
             {/* Contact Items */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[
-                { icon: "📍", label: "Address", value: "Lalitpur, Nepal" },
-                { icon: "📧", label: "Email", value: "hello@flosoftwares.com" },
-                { icon: "📱", label: "Phone", value: "+977 9800000000" },
+                { icon: <MapPin size={24} color="white" />, label: "Address", value: "Lalitpur, Nepal" },
+                { icon: <Mail size={24} color="white" />, label: "Email", value: "hello@flosoftwares.com" },
+                { icon: <Phone size={24} color="white" />, label: "Phone", value: "+977 9800000000" },
               ].map((item, index) => (
                 <div
                   key={index}

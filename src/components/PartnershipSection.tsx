@@ -16,7 +16,7 @@ const partners = [
   { name: "Flosecurity", icon: <Cloud /> },
   { name: "Digital Pathshala", icon: <Shield /> },
   { name: "Reeman", icon: <Zap /> },
-  { name: "Reeman", icon: <Anchor /> },
+  { name: "Reeman", icon: <Anchor /> }, 
   { name: "Reeman", icon: <Box /> },
 ];
 
