@@ -62,7 +62,7 @@ export default function ServicesSection() {
         overflow: "hidden",
       }}
     >
-      {/* Background decoration */}
+      
       <div
         style={{
           position: "absolute",
@@ -88,7 +88,7 @@ export default function ServicesSection() {
         }}
       />
 
-      {/* Header */}
+      
       <div
         style={{
           padding: "120px 24px 80px 24px",
@@ -136,7 +136,7 @@ export default function ServicesSection() {
         </p>
       </div>
 
-      {/* Services Grid */}
+      
       <div
         style={{
           padding: "0 24px 120px 24px",
@@ -174,7 +174,7 @@ export default function ServicesSection() {
                 overflow: "hidden",
               }}
             >
-              {/* Gradient line on top when hovered */}
+              
               <div
                 style={{
                   position: "absolute",
@@ -188,7 +188,7 @@ export default function ServicesSection() {
                 }}
               />
 
-              {/* Icon */}
+              
               <div
                 style={{
                   width: "72px",
@@ -208,7 +208,7 @@ export default function ServicesSection() {
                 {service.icon}
               </div>
 
-              {/* Title */}
+              
               <h3
                 style={{
                   fontSize: "22px",
@@ -220,7 +220,7 @@ export default function ServicesSection() {
                 {service.title}
               </h3>
 
-              {/* Description */}
+              
               <p
                 style={{
                   fontSize: "15px",
@@ -232,7 +232,7 @@ export default function ServicesSection() {
                 {service.description}
               </p>
 
-              {/* Features */}
+              
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
                 {service.features.map((feature, i) => (
                   <div
@@ -265,7 +265,7 @@ export default function ServicesSection() {
                 ))}
               </div>
 
-              {/* Learn More Link */}
+              
               <div
                 style={{
                   display: "flex",
