@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
+   <>
       <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto max-w-[500px] md:max-w-none">
         <div
           style={{
@@ -53,7 +53,7 @@ export default function Navbar() {
             <Menu size={24} />
           </button>
 
-          {/* Desktop Links */}
+          {/* Desktop Links   */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
@@ -121,6 +121,5 @@ export default function Navbar() {
         </div>
       )}
     </>
- 
-  );
+  )
 }

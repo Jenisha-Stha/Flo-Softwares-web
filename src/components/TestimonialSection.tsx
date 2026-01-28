@@ -6,8 +6,7 @@ const testimonials = [
   {
     name: "Jenisha Shrestha",
     role: "Client",
-    review:"Helped us communicate better with customers. Amazing experience!",
-
+    review: " helped us communicate better with customers. Amazing experience!",
   },
   {
     name: "Prashant Karki",
