@@ -126,7 +126,7 @@ export default function AboutSection() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+            backgroundColor: "#020063",
             boxShadow: "0 8px 30px rgba(2, 0, 99, 0.25)",
           }}
         >
@@ -198,9 +198,7 @@ export default function AboutSection() {
                   fontSize: "clamp(36px, 5vw, 56px)",
                   fontWeight: "bold",
                   marginBottom: "4px",
-                  background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  color: "#020063",
                 }}
               >
                 {stat.number}

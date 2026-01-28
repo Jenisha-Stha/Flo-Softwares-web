@@ -175,7 +175,7 @@ export default function HeroSection() {
           }}
         >
           {!isLoaded ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#f8faff] to-[#e8ecff]">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#f8faff]">
               <div className="w-16 h-16 border-4 border-[#020063]/20 border-t-[#020063] rounded-full animate-spin"></div>
             </div>
           ) : (
@@ -214,9 +214,7 @@ export default function HeroSection() {
             <h2
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
               style={{
-                background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: "#ff8c00",
                 textShadow: "none",
               }}
             >
@@ -243,7 +241,7 @@ export default function HeroSection() {
                 <a
                   href="#contact"
                   style={{
-                    background: "linear-gradient(135deg, #020063 0%, #3730a3 100%)",
+                    backgroundColor: "#ff8c00",
                     boxShadow: "0 4px 20px rgba(2, 0, 99, 0.4)",
                   }}
                   className="inline-block text-white font-semibold px-8 py-4 rounded-full hover:scale-105 transition-all"

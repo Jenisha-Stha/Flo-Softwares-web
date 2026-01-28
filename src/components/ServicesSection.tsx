@@ -63,30 +63,7 @@ export default function ServicesSection() {
       }}
     >
       
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(67, 56, 202, 0.05) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "-5%",
-          width: "300px",
-          height: "300px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(2, 0, 99, 0.05) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
+
 
       
       <div
@@ -116,9 +93,7 @@ export default function ServicesSection() {
             fontSize: "clamp(40px, 6vw, 72px)",
             fontWeight: "bold",
             marginBottom: "20px",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#020063",
           }}
         >
           What We Offer
@@ -182,7 +157,7 @@ export default function ServicesSection() {
                   left: 0,
                   right: 0,
                   height: "3px",
-                  background: "linear-gradient(90deg, #020063 0%, #4338ca 100%)",
+                  background: "#ff8c00",
                   opacity: hoveredIndex === index ? 1 : 0,
                   transition: "opacity 0.3s ease",
                 }}
@@ -199,7 +174,7 @@ export default function ServicesSection() {
                   justifyContent: "center",
                   fontSize: "32px",
                   marginBottom: "28px",
-                  background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+                  backgroundColor: "#020063",
                   boxShadow: "0 12px 28px rgba(2, 0, 99, 0.25)",
                   transition: "transform 0.3s ease",
                   transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
