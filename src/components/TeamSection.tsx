@@ -1,201 +1,118 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const team = [
-  {
-    name: "Manish Basnet",
-    role: "Founder & CEO",
-    bio: "Visionary leader with 10+ years in software",
-    initial: "MB",
-    color: "#020063",
-  },
-  {
-    name: "Sanjeev Shrestha",
-    role: "Lead Developer",
-    bio: "Full-stack expert in React and Node.js",
-    initial: "SS",
-    color: "#4338ca",
-  },
-  {
-    name: "Apeksha Parajuli",
-    role: "UI/UX Designer",
-    bio: "Creative designer for user experiences",
-    initial: "PT",
-    color: "#6366f1",
-  },
-  {
-    name: "Arpana Sharma",
-    role: "Backend Architect",
-    bio: "Systems expert in cloud infrastructure",
-    initial: "RM",
-    color: "#020063",
-  },
+  { name: "Manish Basnet", role: "Founder & CEO", bio: "Visionary leader with 10+ years in software", initial: "MB" },
+  { name: "Sanjeev Shrestha", role: "Lead Developer", bio: "Full-stack expert in React and Node.js", initial: "SS" },
+  { name: "Apeksha Parajuli", role: "UI/UX Designer", bio: "Creative designer for user experiences", initial: "PT" },
+  { name: "Arpana Sharma", role: "Backend Architect", bio: "Systems expert in cloud infrastructure", initial: "RM" },
+  { name: "Ramesh Khatri", role: "Project Manager", bio: "Keeps projects on track", initial: "RK" },
+  { name: "Sita Sharma", role: "QA Lead", bio: "Ensures quality and smooth release", initial: "SS" },
 ];
 
 export default function TeamSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const avatarColors = ["#020063", "#ff8c00"]; // Blue & Orange alternate
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
+    if (rowRef.current) setWidth(rowRef.current.scrollWidth / 2);
   }, []);
 
+  const loopTeam = [...team, ...team]; // duplicate for infinite scroll
+
   return (
-    <section
-      id="team"
-      ref={sectionRef}
-      style={{ backgroundColor: "white" }}
-    >
+    <section style={{ backgroundColor: "#f5f7ff", padding: "100px 0" }}>
       {/* Header */}
-      <div
-        style={{
-          padding: "100px 24px 48px 24px",
-          textAlign: "center",
-        }}
-      >
-        <span
-          style={{
-            display: "inline-block",
-            padding: "8px 20px",
-            backgroundColor: "rgba(2, 0, 99, 0.05)",
-            color: "#020063",
-            borderRadius: "100px",
-            fontSize: "14px",
-            fontWeight: "600",
-            marginBottom: "20px",
-          }}
-        >
-          👥 Our Team
-        </span>
-        <h2
-          style={{
-            fontSize: "clamp(36px, 5vw, 56px)",
-            fontWeight: "bold",
-            marginBottom: "12px",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Meet the Experts
-        </h2>
-        <p
-          style={{
-            fontSize: "16px",
-            color: "rgba(2, 0, 99, 0.5)",
-            maxWidth: "400px",
-            margin: "0 auto",
-          }}
-        >
+      <div style={{ textAlign: "center", marginBottom: "48px" }}>
+        <span style={{
+          display: "inline-block",
+          padding: "10px 24px",
+          backgroundColor: "rgba(2,0,99,0.05)",
+          color: "#020063",
+          borderRadius: "100px",
+          fontSize: "16px",
+          fontWeight: "600",
+          marginBottom: "20px"
+        }}>👥 Our Team</span>
+        <h2 style={{
+          fontSize: "clamp(38px,5vw,60px)",
+          fontWeight: "bold",
+          marginBottom: "16px",
+          background: "linear-gradient(135deg,#020063 0%,#4338ca 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent"
+        }}>Meet The Experts</h2>
+        <p style={{ fontSize: "17px", color: "rgba(2,0,99,0.5)", maxWidth: "500px", margin: "0 auto" }}>
           Talented individuals bringing your vision to life
         </p>
       </div>
 
-      {/* Team Grid - Fixed 4 columns */}
-      <div
-        style={{
-          padding: "0 24px 100px 24px",
-          maxWidth: "1100px",
-          margin: "0 auto",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "24px",
-          }}
+      {/* Single row infinite carousel */}
+      <div style={{ overflow: "hidden", padding: "0 24px" }}>
+        <motion.div
+          ref={rowRef}
+          style={{ display: "flex", gap: "36px", x: 0 }}
+          animate={{ x: hovered === null ? [-width, 0] : 0 }}
+          transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 35, ease: "linear" } }}
         >
-          {team.map((member, index) => (
-            <div
+          {loopTeam.map((member, index) => (
+            <motion.div
               key={index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseEnter={() => setHovered(index)}
+              onMouseLeave={() => setHovered(null)}
               style={{
-                textAlign: "center",
-                padding: "24px 16px",
+                width: "320px",       
+                height: "420px",      
+                padding: "36px 24px",
                 borderRadius: "20px",
-                backgroundColor: hoveredIndex === index ? "#f8faff" : "transparent",
-                transition: "all 0.3s ease",
+                textAlign: "center",
                 cursor: "pointer",
+                flexShrink: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between",
+                background: hovered === index ? "#020063" : "linear-gradient(135deg,#ffffffcc 0%,#f5f7ffcc 100%)",
+                color: hovered === index ? "white" : "inherit",
+                boxShadow: "0 6px 24px rgba(0,0,0,0.08)"
               }}
+              animate={{
+                scale: hovered === index ? 1.25 : [0.97, 1.03, 0.97],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Avatar */}
-              <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  borderRadius: "50%",
-                  margin: "0 auto 16px auto",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                  color: "white",
-                  background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)`,
-                  boxShadow: hoveredIndex === index
-                    ? `0 12px 32px ${member.color}40`
-                    : `0 6px 20px ${member.color}20`,
-                  transition: "all 0.3s ease",
-                  transform: hoveredIndex === index ? "scale(1.08)" : "scale(1)",
-                }}
-              >
-                {member.initial}
-              </div>
+              <div style={{
+                width: "120px",
+                height: "120px",
+                borderRadius: "50%",
+                marginBottom: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "32px",
+                fontWeight: "bold",
+                color: "white",
+                background: avatarColors[index % 2] === "#020063" && hovered === index ? "#4f6ef5" : avatarColors[index % 2],
+                boxShadow: `0 6px 28px ${avatarColors[index % 2]}50`
+              }}>{member.initial}</div>
 
               {/* Name */}
-              <h3
-                style={{
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  color: "#020063",
-                  marginBottom: "4px",
-                }}
-              >
-                {member.name}
-              </h3>
+              <h3 style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "6px" }}>{member.name}</h3>
 
               {/* Role */}
-              <p
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "600",
-                  color: "#4338ca",
-                  marginBottom: "8px",
-                }}
-              >
-                {member.role}
-              </p>
+              <p style={{ fontSize: "15px", fontWeight: "600", marginBottom: "10px" }}>{member.role}</p>
 
               {/* Bio */}
-              <p
-                style={{
-                  fontSize: "12px",
-                  color: "rgba(2, 0, 99, 0.5)",
-                  lineHeight: "1.4",
-                }}
-              >
-                {member.bio}
-              </p>
-            </div>
+              <p style={{ fontSize: "14px", lineHeight: "1.5" }}>{member.bio}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
