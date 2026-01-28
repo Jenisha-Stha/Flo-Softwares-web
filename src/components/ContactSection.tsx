@@ -58,9 +58,7 @@ export default function ContactSection() {
             fontSize: "clamp(36px, 5vw, 56px)",
             fontWeight: "bold",
             marginBottom: "12px",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#020063",
           }}
         >
           Contact Us
@@ -139,7 +137,7 @@ main
                       width: "48px",
                       height: "48px",
                       borderRadius: "12px",
-                      background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+                      backgroundColor: "#020063",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -220,7 +218,7 @@ main
                 marginBottom:"10px",
                 borderRadius: "12px",
                 border: "none",
-                background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+                backgroundColor: "#020063",
                 color: "white",
                 fontSize: "16px",
                 fontWeight: "600",

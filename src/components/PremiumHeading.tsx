@@ -15,7 +15,7 @@ export default function PremiumHeading({
       {/* Ambient subtle dark-blue glow */}
       <div className="absolute inset-0 flex justify-center">
         <div className="w-[500px] h-[500px] rounded-full 
-                        bg-gradient-to-tr from-blue-900/20 via-blue-800/10 to-blue-700/10
+                        bg-[#020063]/5
                         blur-[120px]" />
       </div>
 
@@ -30,9 +30,7 @@ export default function PremiumHeading({
         {lines.map((line, idx) => (
           <div key={idx} className="overflow-hidden">
             <span
-              className="bg-gradient-to-r from-blue-700 via-blue-300 to-white
-                         bg-clip-text text-transparent
-                         animate-shine block"
+              className="text-[#020063] block"
             >
               {line}
             </span>
