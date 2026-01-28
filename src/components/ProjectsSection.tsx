@@ -99,7 +99,7 @@ export default function ProjectsSection() {
             marginBottom: "24px",
           }}
         >
-          🚀 Our Projects
+           Our Projects
         </span>
         <h2
           style={{

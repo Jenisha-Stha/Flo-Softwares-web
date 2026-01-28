@@ -109,7 +109,7 @@ export default function ServicesSection() {
             letterSpacing: "0.5px",
           }}
         >
-          ✨ Our Services
+           Our Services
         </span>
         <h2
           style={{

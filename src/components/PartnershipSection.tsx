@@ -50,7 +50,7 @@ export default function PartnershipSection() {
              letterSpacing: "0.5px",
           }}
         >
-          🤝 Our Ecosystem
+           Partnership
         </span>
         <h2
           style={{
