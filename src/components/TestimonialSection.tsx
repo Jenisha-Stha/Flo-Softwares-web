@@ -60,7 +60,7 @@ export default function Testimonials() {
                 key={i}
                 className={`
                   absolute inset-0
-                  flex items-center justify-center
+                  flex items-center justify-center 
                   transition-all duration-700 ease-in-out
                   ${cardStyles[position]}
                 `}
