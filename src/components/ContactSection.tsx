@@ -169,7 +169,9 @@ main
             style={{
               backgroundColor: "white",
               padding: "32px",
+              marginBottom:"70px",
               borderRadius: "24px",
+              gap:"10px",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.06)",
             }}
           >
@@ -199,7 +201,7 @@ main
               placeholder="Subject"
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              style={{ ...inputStyle, marginBottom: "16px" }}
+              style={{ ...inputStyle,marginTop:"16px", marginBottom: "16px" }}
               required
             />
             <textarea
@@ -207,7 +209,7 @@ main
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               rows={5}
-              style={{ ...inputStyle, resize: "none", marginBottom: "24px" }}
+              style={{ ...inputStyle, resize: "none", marginBottom: "16px" }}
               required
             />
             <button
@@ -215,6 +217,7 @@ main
               style={{
                 width: "100%",
                 padding: "16px",
+                marginBottom:"10px",
                 borderRadius: "12px",
                 border: "none",
                 background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
