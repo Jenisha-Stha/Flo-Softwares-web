@@ -11,6 +11,7 @@ import ServicesSection from "@/components/ServicesSection";
 import PartnershipSection from "@/components/PartnershipSection";
 import TestimonialSection from "@/components/TestimonialSection";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen">

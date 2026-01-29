@@ -103,7 +103,7 @@ export default function ProjectsSection() {
         </span>
         <h2
           style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
+            fontSize: "clamp(32px, 5vw, 56px)",
             fontWeight: "bold",
             marginBottom: "20px",
             color: "#020063",

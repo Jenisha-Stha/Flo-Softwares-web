@@ -55,7 +55,7 @@ export default function ContactSection() {
         </span>
         <h2
           style={{
-            fontSize: "clamp(36px, 5vw, 56px)",
+            fontSize: "clamp(32px, 5vw, 48px)",
             fontWeight: "bold",
             marginBottom: "12px",
             color: "#020063",

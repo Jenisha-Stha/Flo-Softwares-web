@@ -40,7 +40,7 @@ export default function Testimonials() {
   return (
     <section className="w-full flex justify-center mt-24 px-4">
       <div className="w-full max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">
+        <h2 className=" md:text-4xl font-bold text-center mb-12 md:mb-16" style={{fontSize: "clamp(32px, 5vw, 48px)"}}>
           What Our Clients Say
         </h2>
 
