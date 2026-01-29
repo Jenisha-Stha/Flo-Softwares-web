@@ -8,42 +8,42 @@ const projects = [
     category: "Web Development",
     description: "Social networking app with real-time messaging.",
     tags: ["React", "Node.js", "MongoDB"],
-    color: "#4338ca",
+    color: "#020063", // Dark Blue
   },
   {
     title: "title",
     category: "Enterprise",
     description: "Social networking app with real-time messaging..",
     tags: ["Python", "PostgreSQL"],
-    color: "#020063",
+    color: "#ff8c00", // Orange
   },
   {
     title: "title",
     category: "Web App",
     description: "Social networking app with real-time messaging.",
     tags: ["Next.js", "D3.js"],
-    color: "#6366f1",
+    color: "#020063", // Light Blue
   },
   {
     title: "title",
     category: "Web App",
     description: "Social networking app with real-time messaging.",
     tags: ["React", "WebRTC"],
-    color: "#4338ca",
+    color: "#ff8c00", // Dark Blue
   },
   {
     title: "title",
     category: "Desktop",
     description: "Social networking app with real-time messaging.",
     tags: ["Electron", "SQLite"],
-    color: "#020063",
+    color: "#020063", // Orange
   },
   {
     title: "title",
     category: "Mobile",
     description: "social networking.",
     tags: ["React Native", "Firebase"],
-    color: "#6366f1",
+    color: "#ff8c00", // Light Blue
   },
 ];
 
@@ -99,16 +99,14 @@ export default function ProjectsSection() {
             marginBottom: "24px",
           }}
         >
-          🚀 Our Projects
+           Our Projects
         </span>
         <h2
           style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
+            fontSize: "clamp(32px, 5vw, 56px)",
             fontWeight: "bold",
             marginBottom: "20px",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#020063",
           }}
         >
           Recent Work
@@ -158,7 +156,7 @@ export default function ProjectsSection() {
               <div
                 style={{
                   height: "160px",
-                  background: `linear-gradient(135deg, ${project.color} 0%, ${project.color}bb 100%)`,
+                  backgroundColor: project.color,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

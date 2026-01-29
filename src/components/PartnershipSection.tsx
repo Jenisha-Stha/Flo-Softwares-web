@@ -50,7 +50,7 @@ export default function PartnershipSection() {
              letterSpacing: "0.5px",
           }}
         >
-          🤝 Our Ecosystem
+           Partnership
         </span>
         <h2
           style={{
@@ -71,30 +71,8 @@ export default function PartnershipSection() {
         }}
       >
         {/* Gradient Masks for fade effect */}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            width: "150px",
-            background: "linear-gradient(to right, white, transparent)",
-            zIndex: 2,
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            right: 0,
-            top: 0,
-            bottom: 0,
-            width: "150px",
-            background: "linear-gradient(to left, white, transparent)",
-            zIndex: 2,
-            pointerEvents: "none",
-          }}
-        />
+
+
 
         {/* Marquee Container */}
         <div

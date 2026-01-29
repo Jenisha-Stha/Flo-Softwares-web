@@ -35,31 +35,30 @@ export default function ContactSection() {
     <section id="contact" style={{ backgroundColor: "#f8faff" }}>
       {/* Header */}
       <div
-        className="w-full px-6 py-12 md:pt-[100px] md:pb-12 text-center"
+        className="w-full  pt-2 px-6 py-12 md:pt-[100px] md:pb-12 text-center"
         style={{}}
       >
         <span
           style={{
             display: "inline-block",
-            padding: "8px 20px",
+            padding: "8px",
             backgroundColor: "rgba(2, 0, 99, 0.05)",
             color: "#020063",
             borderRadius: "100px",
             fontSize: "14px",
             fontWeight: "600",
+            marginTop: "40px",
             marginBottom: "20px",
           }}
         >
-          📬 Get In Touch
+          Get In Touch
         </span>
         <h2
           style={{
-            fontSize: "clamp(36px, 5vw, 56px)",
+            fontSize: "clamp(32px, 5vw, 48px)",
             fontWeight: "bold",
             marginBottom: "12px",
-            background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#020063",
           }}
         >
           Contact Us
@@ -70,6 +69,7 @@ export default function ContactSection() {
             color: "rgba(2, 0, 99, 0.5)",
             maxWidth: "400px",
             margin: "0 auto",
+            padding: "2px 20px 15px 20px "
           }}
         >
           Let&apos;s discuss how we can help your business grow
@@ -78,7 +78,7 @@ export default function ContactSection() {
 
       {/* Content */}
       <div
-        className="w-full px-6 pb-12 md:pb-[100px] max-w-[1000px] mx-auto"
+        className="w-full p-6 md:pb-[100px] md:px-6 max-w-[1000px] mx-auto text-center"
         style={{
           margin: "0 auto", // Force centering with inline style as backup
         }}
@@ -90,7 +90,7 @@ export default function ContactSection() {
           }}
         >
           {/* Contact Info */}
-          <div>
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h3
               style={{
                 fontSize: "24px",
@@ -118,7 +118,7 @@ main
             </p>
 
             {/* Contact Items */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "400px" }} className="w-full mx-auto md:mx-0 md:max-w-none">
               {[
                 { icon: <MapPin size={24} color="white" />, label: "Address", value: "Lalitpur, Nepal" },
                 { icon: <Mail size={24} color="white" />, label: "Email", value: "hello@flosoftwares.com" },
@@ -137,17 +137,18 @@ main
                       width: "48px",
                       height: "48px",
                       borderRadius: "12px",
-                      background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+                      backgroundColor: "#020063",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: "20px",
                       boxShadow: "0 6px 20px rgba(2, 0, 99, 0.2)",
+                      flexShrink: 0,
                     }}
                   >
                     {item.icon}
                   </div>
-                  <div>
+                  <div style={{ textAlign: "left" }}>
                     <p style={{ fontSize: "12px", color: "rgba(2, 0, 99, 0.4)", marginBottom: "2px" }}>
                       {item.label}
                     </p>
@@ -166,7 +167,9 @@ main
             style={{
               backgroundColor: "white",
               padding: "32px",
+              marginBottom:"70px",
               borderRadius: "24px",
+              gap:"10px",
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.06)",
             }}
           >
@@ -196,7 +199,7 @@ main
               placeholder="Subject"
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              style={{ ...inputStyle, marginBottom: "16px" }}
+              style={{ ...inputStyle,marginTop:"16px", marginBottom: "16px" }}
               required
             />
             <textarea
@@ -204,7 +207,7 @@ main
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               rows={5}
-              style={{ ...inputStyle, resize: "none", marginBottom: "24px" }}
+              style={{ ...inputStyle, resize: "none", marginBottom: "16px" }}
               required
             />
             <button
@@ -212,9 +215,10 @@ main
               style={{
                 width: "100%",
                 padding: "16px",
+                marginBottom:"10px",
                 borderRadius: "12px",
                 border: "none",
-                background: "linear-gradient(135deg, #020063 0%, #4338ca 100%)",
+                backgroundColor: "#020063",
                 color: "white",
                 fontSize: "16px",
                 fontWeight: "600",
@@ -231,4 +235,4 @@ main
       </div>
     </section>
   );
-}
+} 
