@@ -40,7 +40,7 @@ export default function TeamSection() {
           marginBottom: "20px"
         }}> Our Team</span>
         <h2 style={{
-          fontSize: "clamp(38px,5vw,60px)",
+          fontSize: "clamp(32px, 5vw, 48px)",
           fontWeight: "bold",
           marginBottom: "16px",
           color: "#020063",

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import PremiumHeading from "@/components/PremiumHeading";
+import TextPressure from "@/components/TextPressure";
 
 const stats = [
   { number: "50+", label: "Projects" },
@@ -50,17 +51,19 @@ export default function AboutSection() {
         }}
       >
         <div style={{ maxWidth: "700px" }}>
-          <h3
-  style={{
-    fontSize: "clamp(40px, 6vw, 70px)",
-    fontWeight: "bold",
-    color: "#020063",
-    marginBottom: "24px",
-    lineHeight: "1.15",
-  }}
->
-  Who We Are
-</h3>
+<div style={{ position: "relative", height: "128px", width: "100%", marginBottom: "24px" }}>
+            <TextPressure
+              text="Who We Are"
+              flex={true}
+              alpha={false}
+              stroke={false}
+              width={true}
+              weight={true}
+              italic={true}
+              textColor="#020063"
+              minFontSize={48}
+            />
+          </div>
 
           <p
             style={{
