@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: "Jenisha Shrestha",
     role: "Client",
-    review:" helped us communicate better with customers. Amazing experience!",
+    review: " helped us communicate better with customers. Amazing experience!",
   },
   {
     name: "Prashant Karki",
@@ -40,11 +40,11 @@ export default function Testimonials() {
   return (
     <section className="w-full flex justify-center mt-24 px-4">
       <div className="w-full max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">
+        <h2 className=" md:text-4xl font-bold text-center mb-12 md:mb-16" style={{ fontSize: "clamp(32px, 5vw, 48px)" }}>
           What Our Clients Say
         </h2>
 
-        
+
         <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden flex items-center justify-center">
           {testimonials.map((item, i) => {
             let position = "hidden";
@@ -59,12 +59,12 @@ export default function Testimonials() {
                 key={i}
                 className={`
                   absolute inset-0
-                  flex items-center justify-center
+                  flex items-center justify-center 
                   transition-all duration-700 ease-in-out
                   ${cardStyles[position]}
                 `}
               >
-                
+
                 <div className="
                   bg-white rounded-3xl shadow-2xl
                   w-full max-w-[340px] md:max-w-[520px]
