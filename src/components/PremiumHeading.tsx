@@ -35,6 +35,6 @@ export default function PremiumHeading() {
           Into Digital Solutions
         </h2>
       </motion.div>
-    </section>
+    </section >
   );
 }

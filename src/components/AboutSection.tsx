@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import PremiumHeading from "@/components/PremiumHeading";
+import TextPressure from "@/components/TextPressure";
 import { useRive, useStateMachineInput, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 import { motion } from "framer-motion";
 
@@ -168,9 +169,7 @@ export default function AboutSection() {
         }}
       >
         <div style={{ maxWidth: "700px" }}>
-
           <RiveAnimation />
-
           <h3
             style={{
               fontSize: "clamp(40px, 6vw, 70px)",

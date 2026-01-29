@@ -43,7 +43,8 @@ export default function TeamSection() {
         <h2 style={{
           fontSize: "clamp(38px,5vw,60px)",
           fontWeight: "bold",
-          marginBottom: "0px",
+          marginBottom: "16px",
+          color: "#020063",
           background: "linear-gradient(135deg,#020063 0%,#4338ca 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent"
