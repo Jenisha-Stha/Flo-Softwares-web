@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Monitor, Globe, Palette, Smartphone } from "lucide-react";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const services = [
   {

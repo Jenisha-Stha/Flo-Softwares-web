@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const team = [
   { name: "Manish Basnet", role: "Founder & CEO", bio: "Visionary leader with 10+ years in software", initial: "MB" },

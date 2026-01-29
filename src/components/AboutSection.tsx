@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import PremiumHeading from "@/components/PremiumHeading";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const stats = [
   { number: "50+", label: "Projects" },

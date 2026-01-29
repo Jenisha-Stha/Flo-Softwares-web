@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({

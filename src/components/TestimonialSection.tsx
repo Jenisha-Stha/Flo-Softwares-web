@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const testimonials = [
   {

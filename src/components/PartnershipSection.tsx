@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Cpu, Cloud, Shield, Zap, Anchor, Box } from "lucide-react";
-import TextPressure from "@/components/TextPressure";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 // Placeholder partners - in a real app, these would be logos
 const partners = [
