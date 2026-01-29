@@ -105,6 +105,7 @@ export default function HeroSection() {
     if (Math.abs(diff) > 0.3) {
       frameRef.current = currentFrameVal + step;
       setCurrentFrame(Math.round(frameRef.current));
+      // eslint-disable-next-line react-hooks/immutability
       rafRef.current = requestAnimationFrame(updateFrame);
     } else {
       frameRef.current = targetFrame;

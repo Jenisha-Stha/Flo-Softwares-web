@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
+import TextPressure from "@/components/TextPressure";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -53,16 +54,19 @@ export default function ContactSection() {
         >
           Get In Touch
         </span>
-        <h2
-          style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            fontWeight: "bold",
-            marginBottom: "12px",
-            color: "#020063",
-          }}
-        >
-          Contact Us
-        </h2>
+<div style={{ position: "relative", height: "120px", width: "100%", maxWidth: "450px", margin: "0 auto", marginBottom: "12px" }}>
+          <TextPressure
+            text="Contact Us"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
         <p
           style={{
             fontSize: "16px",

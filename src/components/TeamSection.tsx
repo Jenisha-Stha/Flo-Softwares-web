@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import TextPressure from "@/components/TextPressure";
 
 const team = [
   { name: "Manish Basnet", role: "Founder & CEO", bio: "Visionary leader with 10+ years in software", initial: "MB" },
@@ -39,12 +40,19 @@ export default function TeamSection() {
           fontWeight: "600",
           marginBottom: "20px"
         }}> Our Team</span>
-        <h2 style={{
-          fontSize: "clamp(32px, 5vw, 48px)",
-          fontWeight: "bold",
-          marginBottom: "16px",
-          color: "#020063",
-        }}>Meet The Experts</h2>
+<div style={{ position: "relative", height: "100px", width: "100%", maxWidth: "700px", margin: "0 auto", marginBottom: "16px" }}>
+          <TextPressure
+            text="Meet The Experts"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
         <p style={{ fontSize: "17px", color: "rgba(2,0,99,0.5)", maxWidth: "500px", margin: "0 auto" }}>
           Talented individuals bringing your vision to life
         </p>
