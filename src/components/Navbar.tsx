@@ -26,7 +26,14 @@ export default function Navbar() {
   }, []);
 
   return (
+apekshyaa
+
+
+
+    <>
+
    <>
+main
       <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto max-w-[500px] md:max-w-none">
         <div
           style={{
@@ -121,5 +128,11 @@ export default function Navbar() {
         </div>
       )}
     </>
+apekshyaa
+
+  );
+}
+
   )
 }
+main
