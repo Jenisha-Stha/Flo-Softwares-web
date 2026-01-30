@@ -54,19 +54,7 @@ export default function TeamSection() {
             minFontSize={36}
           />
         </div>
-        <h2 style={{
-          fontSize: "clamp(32px, 5vw, 48px)",
-          fontWeight: "bold",
-apekshyaa
-          marginBottom: "0px",
-          background: "linear-gradient(135deg,#020063 0%,#4338ca 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent"
-
-          marginBottom: "16px",
-          color: "#020063",
-main
-        }}>Meet The Experts</h2>
+       
 
         {/* Sparkles Beam Effect */}
         <div style={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "24px" }}>

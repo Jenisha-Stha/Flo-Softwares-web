@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 
 export default function PremiumHeading() {
   return (
-apekshyaa
     <section className="relative flex flex-col items-center justify-center py-8 overflow-hidden">
-
-    <section className="relative flex items-center justify-center py-24 overflow-hidden">
+{/* 
+    <section className="relative flex items-center justify-center py-24 overflow-hidden"> */}
       
       {/* Ambient subtle dark-blue glow */}
       <div className="absolute inset-0 flex justify-center">
@@ -15,8 +14,6 @@ apekshyaa
                         bg-[#020063]/5
                         blur-[120px]" />
       </div>
-
-main
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -24,7 +21,7 @@ main
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={{ textAlign: "center" }}
       >
- apekshyaa
+
         <h2
           style={{
             fontSize: "clamp(32px, 5vw, 56px)",
@@ -58,9 +55,11 @@ main
             </span>
           </div>
         ))}
-      </motion.h1>
- main
+      
+ 
     </section>
   );
+  
 }
+
 
