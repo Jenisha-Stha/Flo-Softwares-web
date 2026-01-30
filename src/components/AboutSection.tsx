@@ -2,14 +2,11 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import PremiumHeading from "@/components/PremiumHeading";
-apekshyaa
+import TextPressure from "@/components/TextPressure";
 import { useRive, useStateMachineInput, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 import { motion } from "framer-motion";
 
 const riveFile = "/assets/24549-45842-magic-cat.riv";
-
-import TextPressure from "@/components/TextPressure";
- main
 
 const stats = [
   { number: 50, suffix: "+", label: "Projects" },
@@ -172,10 +169,7 @@ export default function AboutSection() {
         }}
       >
         <div style={{ maxWidth: "700px" }}>
-apekshyaa
-
           <RiveAnimation />
-
           <h3
             style={{
               fontSize: "clamp(40px, 6vw, 70px)",
@@ -187,21 +181,6 @@ apekshyaa
           >
             Who We Are
           </h3>
-
-<div style={{ position: "relative", height: "128px", width: "100%", marginBottom: "24px" }}>
-            <TextPressure
-              text="Who We Are"
-              flex={true}
-              alpha={false}
-              stroke={false}
-              width={true}
-              weight={true}
-              italic={true}
-              textColor="#020063"
-              minFontSize={48}
-            />
-          </div>
-main
 
           <p
             style={{
@@ -229,16 +208,11 @@ main
           style={{
             display: "flex",
             justifyContent: "center",
- apekshyaa
             alignItems: "flex-start",
             gap: "48px",
             flexWrap: "wrap",
             maxWidth: "1000px",
             margin: "0 auto",
-
-            backgroundColor: "#020063",
-            boxShadow: "0 8px 30px rgba(2, 0, 99, 0.25)",
-main
           }}
         >
           {[
@@ -337,7 +311,6 @@ main
           }}
         >
           {stats.map((stat, index) => (
- apekshyaa
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -356,19 +329,6 @@ main
               }}
             >
               <AnimatedCounter target={stat.number} suffix={stat.suffix} />
-
-            <div key={index} style={{ textAlign: "center", minWidth: "100px" }}>
-              <div
-                style={{
-                  fontSize: "clamp(36px, 5vw, 56px)",
-                  fontWeight: "bold",
-                  marginBottom: "4px",
-                  color: "#020063",
-                }}
-              >
-                {stat.number}
-              </div>
- main
               <div
                 style={{
                   fontSize: "12px",

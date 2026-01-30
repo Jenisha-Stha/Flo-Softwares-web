@@ -39,19 +39,15 @@ export default function TeamSection() {
           fontSize: "16px",
           fontWeight: "600",
           marginBottom: "20px"
-        }}> Our Team</span>
+        }}>👥 Our Team</span>
         <h2 style={{
-          fontSize: "clamp(32px, 5vw, 48px)",
+          fontSize: "clamp(38px,5vw,60px)",
           fontWeight: "bold",
-apekshyaa
-          marginBottom: "0px",
+          marginBottom: "16px",
+          color: "#020063",
           background: "linear-gradient(135deg,#020063 0%,#4338ca 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent"
-
-          marginBottom: "16px",
-          color: "#020063",
-main
         }}>Meet The Experts</h2>
 
         {/* Sparkles Beam Effect */}
@@ -108,7 +104,7 @@ main
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-between",
-                background: hovered === index ? "#020063" : "#ffffff",
+                background: hovered === index ? "#020063" : "linear-gradient(135deg,#ffffffcc 0%,#f5f7ffcc 100%)",
                 color: hovered === index ? "white" : "inherit",
                 boxShadow: "0 6px 24px rgba(0,0,0,0.08)"
               }}
