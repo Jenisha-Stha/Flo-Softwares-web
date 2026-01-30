@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import PremiumHeading from "@/components/PremiumHeading";
-
+// import TextPressure from "@/components/TextPressure";
 import { useRive, useStateMachineInput, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 import { motion } from "framer-motion";
 

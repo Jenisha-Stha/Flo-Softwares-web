@@ -46,9 +46,9 @@ export default function Navbar() {
             padding: "12px 16px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between", // Changed for mobile layout
-            gap: "8  px",
-            width: "100%", // Full width of the container
+            justifyContent: "space-between",
+            gap: "8px",
+            width: "100%",
           }}
         >
           {/* Mobile Menu Button - Left aligned on mobile, hidden on desktop */}
@@ -59,7 +59,7 @@ export default function Navbar() {
             <Menu size={24} />
           </button>
 
-          {/* Desktop Links   */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
@@ -80,11 +80,11 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          
-          {/* Placeholder for center alignment on mobile if needed, or just keep simple */}
+
+          {/* Placeholder for center alignment on mobile */}
           <span className="md:hidden text-[#020063] font-bold text-lg mx-auto">LOGO</span>
-           {/* Invisible spacer to balance the Menu button for center text alignment */}
-           <div className="md:hidden w-[40px]"></div>
+          {/* Invisible spacer to balance the Menu button */}
+          <div className="md:hidden w-[40px]"></div>
 
         </div>
       </nav>

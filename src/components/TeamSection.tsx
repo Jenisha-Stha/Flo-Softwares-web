@@ -110,7 +110,7 @@ export default function TeamSection() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "space-between",
-                background: hovered === index ? "#020063" : "#ffffff",
+                background: hovered === index ? "#020063" : "linear-gradient(135deg,#ffffffcc 0%,#f5f7ffcc 100%)",
                 color: hovered === index ? "white" : "inherit",
                 boxShadow: "0 6px 24px rgba(0,0,0,0.08)"
               }}

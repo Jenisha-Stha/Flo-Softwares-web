@@ -55,7 +55,7 @@ export default function Testimonials() {
           />
         </div>
 
-        
+
         <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden flex items-center justify-center">
           {testimonials.map((item, i) => {
             let position = "hidden";
@@ -75,7 +75,7 @@ export default function Testimonials() {
                   ${cardStyles[position]}
                 `}
               >
-                
+
                 <div className="
                   bg-white rounded-3xl shadow-2xl
                   w-full max-w-[340px] md:max-w-[520px]
