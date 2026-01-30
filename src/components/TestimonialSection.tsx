@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const testimonials = [
   {
@@ -40,9 +41,19 @@ export default function Testimonials() {
   return (
     <section className="w-full flex justify-center mt-24 px-4">
       <div className="w-full max-w-6xl">
-        <h2 className=" md:text-4xl font-bold text-center mb-12 md:mb-16" style={{ fontSize: "clamp(32px, 5vw, 48px)" }}>
-          What Our Clients Say
-        </h2>
+<div style={{ position: "relative", height: "100px", width: "100%", maxWidth: "800px", margin: "0 auto", marginBottom: "48px" }}>
+          <TextPressure
+            text="What Our Clients Say"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
 
 
         <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden flex items-center justify-center">

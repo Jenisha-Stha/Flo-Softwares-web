@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const projects = [
   {
@@ -101,16 +102,19 @@ export default function ProjectsSection() {
         >
            Our Projects
         </span>
-        <h2
-          style={{
-            fontSize: "clamp(32px, 5vw, 56px)",
-            fontWeight: "bold",
-            marginBottom: "20px",
-            color: "#020063",
-          }}
-        >
-          Recent Work
-        </h2>
+<div style={{ position: "relative", height: "120px", width: "100%", maxWidth: "500px", margin: "0 auto", marginBottom: "20px", overflow: "visible" }}>
+          <TextPressure
+            text="Recent Work"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
         <p
           style={{
             fontSize: "18px",

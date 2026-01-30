@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SparklesCore } from "@/components/ui/sparkles";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const team = [
   { name: "Manish Basnet", role: "Founder & CEO", bio: "Visionary leader with 10+ years in software", initial: "MB" },
@@ -39,16 +40,21 @@ export default function TeamSection() {
           fontSize: "16px",
           fontWeight: "600",
           marginBottom: "20px"
-        }}>👥 Our Team</span>
-        <h2 style={{
-          fontSize: "clamp(38px,5vw,60px)",
-          fontWeight: "bold",
-          marginBottom: "16px",
-          color: "#020063",
-          background: "linear-gradient(135deg,#020063 0%,#4338ca 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent"
-        }}>Meet The Experts</h2>
+        }}> Our Team</span>
+<div style={{ position: "relative", height: "100px", width: "100%", maxWidth: "700px", margin: "0 auto", marginBottom: "16px" }}>
+          <TextPressure
+            text="Meet The Experts"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
+       
 
         {/* Sparkles Beam Effect */}
         <div style={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "24px" }}>

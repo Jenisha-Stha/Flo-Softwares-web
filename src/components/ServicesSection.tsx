@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Monitor, Globe, Palette, Smartphone } from "lucide-react";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 const services = [
   {
@@ -88,16 +89,20 @@ export default function ServicesSection() {
         >
            Our Services
         </span>
-        <h2
-          style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
-            fontWeight: "bold",
-            marginBottom: "20px",
-            color: "#020063",
-          }}
-        >
-          What We Offer
-        </h2>
+        
+<div style={{ position: "relative", height: "105px", width: "100%", maxWidth: "600px", margin: "0 auto", marginBottom: "20px" }}>
+          <TextPressure
+            text="What We Offer"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
         <p
           style={{
             fontSize: "18px",

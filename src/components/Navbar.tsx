@@ -5,12 +5,12 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Team", href: "#team" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+  { name: "Team", href: "/team" }
 ];
 
 export default function Navbar() {
@@ -26,7 +26,13 @@ export default function Navbar() {
   }, []);
 
   return (
+
+
+
+
     <>
+
+  
       <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto max-w-[500px] md:max-w-none">
         <div
           style={{
@@ -121,5 +127,10 @@ export default function Navbar() {
         </div>
       )}
     </>
+
+
   );
 }
+
+  
+

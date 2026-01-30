@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Cpu, Cloud, Shield, Zap, Anchor, Box } from "lucide-react";
+import TextPressure from "@/components/animations/Text-Pressure";
 
 // Placeholder partners - in a real app, these would be logos
 const partners = [
@@ -52,15 +53,19 @@ export default function PartnershipSection() {
         >
            Partnership
         </span>
-        <h2
-          style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            fontWeight: "bold",
-            color: "#020063",
-          }}
-        >
-          Trusted by Industry Leaders
-        </h2>
+<div style={{ position: "relative", height: "100px", width: "100%", maxWidth: "950px", margin: "0 auto", marginBottom: "0" }}>
+          <TextPressure
+            text="Trusted by Industry Leaders"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#020063"
+            minFontSize={36}
+          />
+        </div>
       </div>
 
       <div
