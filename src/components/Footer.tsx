@@ -71,7 +71,7 @@ export default function Footer() {
                 maxWidth: "280px",
               }}
             >
-              Transforming ideas into powerful software solutions. Based in Lalitpur, Nepal.
+              Transforming ideas into powerful software solutions. Based in Lalitpur Nepal.
             </p>
           </div>
 
@@ -102,9 +102,9 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "1px" }}>
+            {/* <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "20px", textTransform: "uppercase", letterSpacing: "1px" }}>
               Services
-            </h4>
+            </h4> */}
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {footerLinks.services.map((link, i) => (
                 <li key={i} style={{ marginBottom: "12px" }}>
