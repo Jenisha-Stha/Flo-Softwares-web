@@ -6,7 +6,7 @@ import TextPressure from "@/components/animations/Text-Pressure";
 const testimonials = [
   {
     name: "Jenisha Shrestha",
-    role: "Client",
+    role: "CEO",
     review: " helped us communicate better with customers. Amazing experience!",
   },
   {
@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     name: "Apeksha Parajuli",
-    role: "CEO",
+    role: "Client",
     review: "The team did a great job. Simple, effective, and impactful.",
   },
 ];
